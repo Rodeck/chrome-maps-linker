@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Google maps linker",
+    "description": "This extension adds link to google maps from google maps search results",
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "./scripts/background.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/content.js"
+            ],
+            "matches": [
+                "https://www.google.com/search?q=*"
+            ]
+        }
+    ]
+}
